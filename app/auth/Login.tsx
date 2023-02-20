@@ -1,7 +1,7 @@
 'use client'
 
 // import { signIn } from "next-auth/react"
-import { supabase } from "../../lib/supabaseClient"
+import { supabase } from "@/lib/supabaseClient" 
 
 async function signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
