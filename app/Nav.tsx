@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Login from "./auth/Login"
+import Profile from "./auth/Profile"
 import { supabase } from "@/lib/supabaseClient"
 
 export default async function Nav() {
@@ -27,8 +28,8 @@ export default async function Nav() {
                 </div>
 
                 <ul className="flex items-center gap-6">
-                    {!session?.data && <Login />}
-                    {session?.data && <h1>Logged In</h1>}
+                    { !session?.data && <Login /> }
+                    { session?.data &&  <Profile /> }
                 </ul>
 
             </nav>
