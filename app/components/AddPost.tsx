@@ -29,7 +29,7 @@ export default function CreatePost() {
           alt=""
         />
       </div>
-      <div className="min-w-0 flex-1">
+      <div className="flex-1">
         <form action="#" className="relative">
           <div className="border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
             <label htmlFor="comment" className="sr-only">
@@ -41,7 +41,7 @@ export default function CreatePost() {
                 value={title}
                 placeholder="What's on your mind?"
                 onChange={(e) => setTitle(e.target.value)}
-              className="block w-full py-3 border-0 resize-none focus:ring-0 sm:text-sm"
+              className="block w-full py-3 border-0 focus:ring-0 sm:text-sm"
             />
 
             {/* Spacer element to match the height of the toolbar */}
