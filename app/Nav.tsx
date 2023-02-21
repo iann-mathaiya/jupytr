@@ -5,7 +5,10 @@ import { supabase } from "@/lib/supabaseClient"
 
 export default async function Nav() {
 
-    const session = await supabase.auth.getSession()
+    const {data, error} = await supabase.auth.getSession()
+
+    console.log(data.session);
+    
 
     return (
         <div className="flex">
@@ -28,8 +31,9 @@ export default async function Nav() {
                 </div>
 
                 <ul className="flex items-center gap-6">
-                    { !session?.data && <Login /> }
-                    { session?.data &&  <Profile /> }
+                    { !data?.session === null && <Login /> || <Profile />  }
+                    {/* { data?.session &&  <Profile /> || "" } */}
+                    {/* {data?.session ? <Profile /> : <Login />} */}
                 </ul>
 
             </nav>
