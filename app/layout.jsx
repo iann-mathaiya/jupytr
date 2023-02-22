@@ -1,18 +1,17 @@
 import './globals.css'
 import Nav from './Nav'
-import { Poppins } from "@next/font/google"
+import { Inter } from "@next/font/google"
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "800"],
-  variable: "--font-poppins",
+  variable: "--font-manrope",
 })
 
 export default function RootLayout({ children }){
   return (
-    <html lang="en">
+    <html lang="en" className={`bg-white ${inter.variable}`}>
       <head />
-      <body className={`bg-white ${poppins.variable}`}>
+      <body>
         <Nav/>
         {children}
       </body>

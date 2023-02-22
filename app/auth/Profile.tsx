@@ -1,7 +1,6 @@
 "use client"
-
 import Link from 'next/link'
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabaseClient'
 import { Menu, Transition } from '@headlessui/react'
 // import Image from 'next/image'
@@ -30,7 +29,29 @@ console.log(user);
 
 export default function Profile() {
 
+    const [user, setUser] = useState(null)
 
+    // useEffect(() => {
+    //     const session = supabase.auth.getSession()
+    //     setUser(session?.data)
+    //     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+    //         switch (event) {
+    //             case "SIGNED_IN":
+    //                 setUser(session?.user)
+    //                 break
+    //             case "SIGNED_OUT":
+    //                 setUser(null)
+    //                 break
+    //             default:
+    //                 break
+    //         }
+    //     })
+
+    //     return () => {
+    //         authListener.subscription.unsubscribe()
+    //     }
+
+    // }, [])
 
     return (
         <div className='absolute inset-y-0 right-0 flex items-center space-x-2 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
