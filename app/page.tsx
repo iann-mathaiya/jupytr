@@ -1,14 +1,17 @@
-'use client'
 import CreatePost from "./components/AddPost"
+import { supabase } from "@/lib/supabaseClient"
 
-export default function Home() {
+export default async function Home() {
+
+  const {data: posts} = await supabase.from('Posts').select()
+
 
   return (
     <main className="px-20">
-      {/* <h1 className="text-2xl font-bold">
-        Hello world!
-      </h1> */}
-      <CreatePost />
+
+      {/* <CreatePost /> */}
+      <ul>{posts?.map(post => <li key={post.id}>{post.title}</li> )}</ul>
+
     </main>
   )
 }

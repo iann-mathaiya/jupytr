@@ -5,7 +5,7 @@ import { supabase } from "@/lib/supabaseClient"
 
 export default async function Nav() {
 
-    const {data, error} = await supabase.auth.getSession()
+    const { data, error } = await supabase.auth.getSession()
 
     console.log(data.session);
 
@@ -30,9 +30,12 @@ export default async function Nav() {
                     </Link>
                 </div>
 
-                <ul className="flex items-center gap-6">
-                    { !data?.session && <Login /> }
-                    { data?.session &&  <Profile /> }
+                <ul className="flex items-center gap-4">
+                    <button type="button" className="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded-md text-slate-800 bg-transparent hover:bg-slate-200">
+                        Create Account
+                    </button>
+                    {!data?.session && <Login />}
+                    {data?.session && <Profile />}
                 </ul>
 
             </nav>
